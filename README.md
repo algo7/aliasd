@@ -116,7 +116,8 @@ curl -u pfsense:s3cret http://localhost:8080/office-vpn
 
 ## pfSense Setup
 
-Create a **URL Table (IPs)** alias under **Firewall** -> **Aliases** -> **Add** -> **Type URL(IPs)** pointing at the alias you want.
+Create a **URL Table (IPs)** alias under **Firewall** -> **Aliases** -> **Add** -> Type **URL Table (IPs)** pointing at the alias you want.
+
 Credentials are supplied the usual way for a fetched URL:
 
 ```
@@ -124,6 +125,24 @@ https://user:password@aliasd.example.com/blocklist
 ```
 
 Serve it over TLS or put it behind a reverse proxy; plain HTTP will shows the credentials in cleartext on the network.
+
+### Updating the URL Table Alias
+
+pfSense only updates the URL Table alias based on the interval you set in the alias configuration. If you want to force an update, you can either:
+
+Update a specific alias:
+
+```bash
+/etc/rc.update_urltables now forceupdate my_alias_name
+```
+
+Or update all URL Table aliases:
+
+```bash
+/etc/rc.update_urltables now forceupdate
+```
+
+Run the above commands in the pfSense via SSH or **Diagnostics** -> **Command Prompt** in the GU.
 
 # Maintainer Guide
 
