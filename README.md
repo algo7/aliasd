@@ -75,12 +75,12 @@ alias "office-vpn": "10.8.0.5/24" has host bits set: use 10.8.0.0/24 for the net
 
 ## Environment Variables
 
-| Variable      | Default        | Description                                                                                                                                      |
-| ------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `ALIAS_FILE`  | `aliases.yaml` | Path to the YAML file holding the alias definitions.                                                                                             |
-| `ALIAS_USER`  | `pfsense`      | HTTP Basic username.                                                                                                                             |
-| `ALIAS_PASS`  | (unset)        | HTTP Basic password. **Unset disables authentication entirely** use for local development only. The server logs a warning at startup when it is. |
-| `LISTEN_ADDR` | `:8080`        | Address the server listens on.                                                                                                                   |
+| Variable      | Default        | Description                                                                                     |
+| ------------- | -------------- | ----------------------------------------------------------------------------------------------- |
+| `ALIAS_FILE`  | `aliases.yaml` | Path to the YAML file holding the alias definitions.                                            |
+| `ALIAS_USER`  | `pfsense`      | HTTP Basic username.                                                                            |
+| `ALIAS_PASS`  | (unset)        | HTTP Basic password. **Unset disables authentication entirely** use for local development only. |
+| `LISTEN_ADDR` | `:8080`        | Address the server listens on.                                                                  |
 
 ## Running the Server
 
@@ -116,7 +116,7 @@ curl -u pfsense:s3cret http://localhost:8080/office-vpn
 
 ## pfSense Setup
 
-Create a **URL Table (IPs)** alias under **Firewall** -> **Aliases** -> **Add** -> Type **URL Table (IPs)** pointing at the alias you want.
+Create a **URL Table (IPs)** alias under **Firewall** -> **Aliases** -> **Add** -> Type **URL Table (IPs)** then add the URL.
 
 Credentials are supplied the usual way for a fetched URL:
 
